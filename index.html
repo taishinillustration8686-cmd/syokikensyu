@@ -100,67 +100,57 @@ a{color:inherit;text-decoration:none}
 }
 /* 名古屋城 */
 .deco-castle{
-  position:absolute;right:-8px;bottom:0;
-  width:min(200px,40%);pointer-events:none;
-  filter:drop-shadow(0 10px 28px rgba(0,0,0,.35));
+  position:absolute;right:-24px;bottom:-8px;
+  width:min(320px,66%);pointer-events:none;z-index:1;
+  filter:drop-shadow(0 20px 50px rgba(0,0,0,.55)) drop-shadow(0 0 40px rgba(255,214,0,.12));
   animation:floatSlow 7s ease-in-out infinite;
 }
 /* テレビ塔 */
 .deco-tower{
-  position:absolute;left:-8px;bottom:0;
-  width:min(185px,38%);pointer-events:none;
-  filter:drop-shadow(0 8px 22px rgba(0,0,0,.3)) brightness(.88);
+  position:absolute;left:-24px;bottom:-8px;
+  width:min(300px,62%);pointer-events:none;z-index:1;
+  filter:drop-shadow(0 16px 40px rgba(0,0,0,.45)) brightness(.85);
   animation:floatSlow 9s ease-in-out 2s infinite;
 }
 .hero-inner{
   position:relative;z-index:2;
   max-width:460px;width:100%;
 }
-/* ロゴ */
-.hero-logo{
-  width:min(108px,28%);margin-bottom:20px;
-  animation:fadeUp .55s .25s both;
-}
-.hero-logo img{
-  width:100%;
-  filter:drop-shadow(0 2px 10px rgba(0,0,0,.4));
-}
-/* 日付バッジ */
+/* 日付＋サブタイトル バッジ（2行） */
 .hero-badge{
-  display:inline-flex;align-items:center;gap:7px;
+  display:inline-flex;flex-direction:column;align-items:flex-start;
   background:var(--yellow);color:var(--navy);
-  font-size:13px;font-weight:900;letter-spacing:.3px;
-  padding:7px 20px;border-radius:50px;
-  margin-bottom:10px;
-  box-shadow:0 5px 20px rgba(255,214,0,.45);
-  animation:fadeUp .55s .4s both;
+  font-weight:900;letter-spacing:.3px;
+  padding:12px 22px 14px;border-radius:18px;
+  margin-bottom:18px;
+  box-shadow:0 6px 24px rgba(255,214,0,.5);
+  animation:fadeUp .55s .3s both;
+}
+.badge-row1{
+  display:flex;align-items:center;gap:7px;
+  font-size:clamp(12px,3.2vw,15px);
+  margin-bottom:2px;
 }
 .badge-dot{
   width:7px;height:7px;border-radius:50%;
   background:var(--navy);
   animation:blink 1.3s ease-in-out infinite;
+  flex-shrink:0;
 }
-/* サブタイトル */
-.hero-sub{
-  font-size:clamp(14px,3.8vw,18px);
-  color:rgba(255,255,255,.9);font-weight:700;
-  margin-bottom:10px;
-  animation:fadeUp .55s .5s both;
-  letter-spacing:.3px;
+.badge-row2{
+  font-size:clamp(16px,4.5vw,22px);
+  line-height:1.2;
 }
 /* メインタイトル */
 .hero-title{
-  font-size:clamp(48px,14vw,82px);
+  font-size:clamp(36px,11.5vw,80px);
   font-weight:900;color:#fff;
-  line-height:1.02;
+  line-height:1.0;
   margin-bottom:26px;
-  text-shadow:0 4px 24px rgba(0,0,0,.5);
-  letter-spacing:-2px;
-  animation:fadeUp .6s .55s both;
-}
-.hero-title .line2{
-  color:var(--yellow);
-  display:block;
+  text-shadow:0 4px 28px rgba(0,0,0,.6);
+  letter-spacing:-1px;
+  white-space:nowrap;
+  animation:fadeUp .6s .45s both;
 }
 /* 3ポイント */
 .hero-points{
@@ -254,63 +244,30 @@ section{padding:64px 20px;}
 
 /* ===== SPEAKERS ===== */
 .speaker-sec{background:var(--light);}
-/* Special Speaker */
-.sp-featured{
-  background:linear-gradient(140deg,var(--navy) 0%,var(--blue) 100%);
-  border-radius:var(--r-l);padding:28px 22px;
-  text-align:center;margin-bottom:16px;
-  box-shadow:var(--sh-l);
+.sp-grid{display:flex;flex-direction:column;gap:16px;}
+.sp-card{
+  background:#fff;border-radius:var(--r-l);
+  padding:28px 20px;text-align:center;
+  box-shadow:var(--sh-m);
   transform:translateY(28px);opacity:0;
-  transition:transform .7s cubic-bezier(.34,1.3,.64,1),opacity .55s;
+  transition:transform .65s cubic-bezier(.34,1.3,.64,1),opacity .55s;
 }
-.sp-featured.on{transform:translateY(0);opacity:1;}
-.sp-badge{
-  display:inline-block;
-  background:var(--yellow);color:var(--navy);
-  font-size:10px;font-weight:900;letter-spacing:2px;
-  padding:4px 18px;border-radius:50px;
-  margin-bottom:18px;
-}
+.sp-card.on{transform:translateY(0);opacity:1;}
+.sp-card:nth-child(2){transition-delay:.1s;}
+.sp-card:nth-child(3){transition-delay:.2s;}
 .sp-photo{
-  width:120px;height:120px;border-radius:50%;
-  overflow:hidden;margin:0 auto 16px;
-  border:4px solid var(--yellow);
-  box-shadow:0 8px 28px rgba(0,0,0,.35);
+  width:min(180px,52%);
+  margin:0 auto 16px;
 }
-.sp-photo img{width:100%;height:100%;object-fit:cover;}
+.sp-photo img{
+  width:100%;height:auto;
+  filter:drop-shadow(0 10px 24px rgba(13,32,96,.18));
+}
 .sp-name{
-  font-size:22px;font-weight:900;color:#fff;
-  margin-bottom:3px;line-height:1.25;
+  font-size:19px;font-weight:900;color:var(--navy);
+  margin-bottom:4px;line-height:1.3;
 }
-.sp-name .suffix{font-size:15px;font-weight:700;}
-.sp-role{font-size:11px;color:rgba(255,255,255,.6);margin-bottom:12px;}
-.sp-bio{
-  font-size:12px;color:rgba(255,255,255,.82);
-  line-height:1.8;text-align:left;
-  background:rgba(255,255,255,.06);
-  border-radius:var(--r-m);padding:14px;
-}
-/* Sub speakers */
-.sp-grid{display:flex;flex-direction:column;gap:12px;}
-.sp-sub{
-  background:#fff;border-radius:var(--r-m);
-  padding:18px;display:flex;align-items:flex-start;gap:16px;
-  box-shadow:var(--sh-s);
-  transform:translateX(-28px);opacity:0;
-  transition:transform .6s cubic-bezier(.34,1.3,.64,1),opacity .5s;
-}
-.sp-sub.on{transform:translateX(0);opacity:1;}
-.sp-sub:nth-child(2){transition-delay:.13s;}
-.sp-sub-photo{
-  width:72px;height:72px;border-radius:50%;
-  overflow:hidden;flex-shrink:0;
-  border:3px solid var(--light);
-  box-shadow:0 3px 10px rgba(13,32,96,.12);
-}
-.sp-sub-photo img{width:100%;height:100%;object-fit:cover;}
-.sp-sub-name{font-size:15px;font-weight:900;color:var(--navy);margin-bottom:2px;}
-.sp-sub-role{font-size:10px;color:var(--text3);margin-bottom:6px;}
-.sp-sub-bio{font-size:11px;color:var(--text2);line-height:1.7;}
+.sp-role{font-size:11px;color:var(--text2);}
 
 /* ===== PAIN ===== */
 .pain-sec{background:#fff;}
@@ -636,21 +593,15 @@ footer{
   <img class="deco-tower"  src="img/Isometric5.png" alt="名古屋テレビ塔">
 
   <div class="hero-inner">
-    <div class="hero-logo">
-      <img src="img/logo.png" alt="U+WORD ユーワード">
-    </div>
-
     <div class="hero-badge">
-      <span class="badge-dot"></span>
-      7月26日（日）この1日で
+      <div class="badge-row1">
+        <span class="badge-dot"></span>
+        7月26日（日）この1日で
+      </div>
+      <div class="badge-row2">ユーワードが丸わかり！</div>
     </div>
 
-    <p class="hero-sub">ユーワードが丸わかり！</p>
-
-    <h1 class="hero-title">
-      名古屋<br>
-      <span class="line2">初期研修</span>
-    </h1>
+    <h1 class="hero-title">名古屋初期研修</h1>
 
     <div class="hero-points">
       <div class="h-point">
@@ -699,36 +650,27 @@ footer{
     <p class="sec-tag">SPEAKER</p>
     <h2 class="sec-title">今回のスピーカー</h2>
 
-    <div class="sp-featured">
-      <span class="sp-badge">✨ Special Speaker</span>
-      <div class="sp-photo">
-        <img src="img/atuko.png" alt="渡辺あつ子さん">
-      </div>
-      <p class="sp-name">渡辺 あつ子<span class="suffix">さん</span></p>
-      <p class="sp-role">腸活カウンセラー / マヤコミュニティ</p>
-      <p class="sp-bio">3人のお子さんを育てながら、腸カウンセラー・腸活支援サポーター・マヤコミュニティとして精力的に活動。2,000人を超える方々のサポートを行っています。</p>
-    </div>
-
     <div class="sp-grid">
-      <div class="sp-sub">
-        <div class="sp-sub-photo">
+      <div class="sp-card">
+        <div class="sp-photo">
+          <img src="img/atuko.png" alt="渡辺あつ子さん">
+        </div>
+        <p class="sp-name">渡辺 あつ子さん</p>
+        <p class="sp-role">Special Speaker / 腸活カウンセラー</p>
+      </div>
+      <div class="sp-card">
+        <div class="sp-photo">
           <img src="img/fujiko.png" alt="堅田不二子さん">
         </div>
-        <div>
-          <p class="sp-sub-name">堅田 不二子さん</p>
-          <p class="sp-sub-role">プロデューサー / コミュニティサポーター</p>
-          <p class="sp-sub-bio">豊富な経験とノウハウを活かし、コミュニティメンバーをサポート。複数の分野でマルチに活躍されています。</p>
-        </div>
+        <p class="sp-name">堅田 不二子さん</p>
+        <p class="sp-role">プロデューサー / コミュニティサポーター</p>
       </div>
-      <div class="sp-sub">
-        <div class="sp-sub-photo">
+      <div class="sp-card">
+        <div class="sp-photo">
           <img src="img/tennyo.png" alt="天女あけみさん">
         </div>
-        <div>
-          <p class="sp-sub-name">天女 あけみさん</p>
-          <p class="sp-sub-role">アフィリエイター / 天女サロン主宰</p>
-          <p class="sp-sub-bio">20年以上の物販経験を活かし、アフィリエイターとして活躍。「売れる」ノウハウを分かりやすく伝えています。</p>
-        </div>
+        <p class="sp-name">天女 あけみさん</p>
+        <p class="sp-role">アフィリエイター / 天女サロン主宰</p>
       </div>
     </div>
   </div>
@@ -1006,7 +948,7 @@ const io = new IntersectionObserver(entries => {
 }, {threshold: .15});
 
 document.querySelectorAll(
-  '.sp-featured, .sp-sub, .pain-item, .resolve-img, .resolve-copy, .r-ck, .learn-item, .learn-foot, .sch-row, .sch-break'
+  '.sp-card, .pain-item, .resolve-img, .resolve-copy, .r-ck, .learn-item, .learn-foot, .sch-row, .sch-break'
 ).forEach(el => io.observe(el));
 </script>
 </body>
