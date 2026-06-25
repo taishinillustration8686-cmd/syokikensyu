@@ -244,30 +244,38 @@ section{padding:64px 20px;}
 
 /* ===== SPEAKERS ===== */
 .speaker-sec{background:var(--light);}
-.sp-grid{display:flex;flex-direction:column;gap:16px;}
+.sp-grid{display:flex;flex-direction:column;gap:0;}
 .sp-card{
-  background:#fff;border-radius:var(--r-l);
-  padding:28px 20px;text-align:center;
-  box-shadow:var(--sh-m);
-  transform:translateY(28px);opacity:0;
+  text-align:center;
+  padding:32px 4px;
+  border-bottom:1px solid rgba(13,32,96,.08);
+  transform:translateY(24px);opacity:0;
   transition:transform .65s cubic-bezier(.34,1.3,.64,1),opacity .55s;
 }
+.sp-card:last-child{border-bottom:none;}
 .sp-card.on{transform:translateY(0);opacity:1;}
 .sp-card:nth-child(2){transition-delay:.1s;}
 .sp-card:nth-child(3){transition-delay:.2s;}
 .sp-photo{
-  width:min(180px,52%);
-  margin:0 auto 16px;
+  width:min(190px,54%);
+  margin:0 auto 18px;
 }
 .sp-photo img{
   width:100%;height:auto;
-  filter:drop-shadow(0 10px 24px rgba(13,32,96,.18));
+  filter:drop-shadow(0 12px 28px rgba(13,32,96,.2));
 }
 .sp-name{
-  font-size:19px;font-weight:900;color:var(--navy);
-  margin-bottom:4px;line-height:1.3;
+  font-size:20px;font-weight:900;color:var(--navy);
+  margin-bottom:3px;line-height:1.3;
 }
-.sp-role{font-size:11px;color:var(--text2);}
+.sp-role{
+  font-size:12px;font-weight:700;color:var(--blue);
+  margin-bottom:10px;
+}
+.sp-bio{
+  font-size:12px;color:var(--text2);
+  line-height:1.85;text-align:left;
+}
 
 /* ===== PAIN ===== */
 .pain-sec{background:#fff;}
@@ -656,21 +664,24 @@ footer{
           <img src="img/atuko.png" alt="渡辺あつ子さん">
         </div>
         <p class="sp-name">渡辺 あつ子さん</p>
-        <p class="sp-role">Special Speaker / 腸活カウンセラー</p>
+        <p class="sp-role">心理カウンセラー</p>
+        <p class="sp-bio">鎌倉在住。3人のお子さんの子育てをしながら心理カウンセラー・発達支援サポーター・ママコミュニティ2,000人を運営され多方面で活動。</p>
       </div>
       <div class="sp-card">
         <div class="sp-photo">
           <img src="img/fujiko.png" alt="堅田不二子さん">
         </div>
         <p class="sp-name">堅田 不二子さん</p>
-        <p class="sp-role">プロデューサー / コミュニティサポーター</p>
+        <p class="sp-role">ヒプノセラピスト</p>
+        <p class="sp-bio">潜在意識の可能性に気づき、数々の夢を叶えてきました。その経験とノウハウを活かして、女性のメンタル面経済面、両面での自立をサポートしている。</p>
       </div>
       <div class="sp-card">
         <div class="sp-photo">
           <img src="img/tennyo.png" alt="天女あけみさん">
         </div>
         <p class="sp-name">天女 あけみさん</p>
-        <p class="sp-role">アフィリエイター / 天女サロン主宰</p>
+        <p class="sp-role">ソウルセラピスト</p>
+        <p class="sp-bio">30年に渡り保険会社の法人担当として日本一を経験。現在はソウルセラピストとして魂を解放させる場所「愛・天女サロン」を運営。</p>
       </div>
     </div>
   </div>
